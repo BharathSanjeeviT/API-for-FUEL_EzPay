@@ -8,7 +8,7 @@ app.use(bodyparser.urlencoded({extended : false}))
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient()
 
-app.get('/',(req,res)=> {
+app.get('/api',(req,res)=> {
     const dbFunc = async () => {
         const data = await prisma.User.findMany()
         res.send(data)
@@ -16,7 +16,7 @@ app.get('/',(req,res)=> {
     dbFunc()
 })
 
-app.get('/redirect',(req,res)=>{
+app.get('/api/redirect',(req,res)=>{
     res.redirect("http://"+"krunker"+".io")
 })
 
@@ -34,7 +34,7 @@ app.post('/create_user',(req,res)=> {
     postData()
 })
 
-app.post('/trans',(req,res)=>{
+app.post('/api/trans',(req,res)=>{
 
     const create_trans = async () => {
         const data = await prisma.Transaction.create({
@@ -49,7 +49,7 @@ app.post('/trans',(req,res)=>{
     create_trans()
 })
 
-app.post('/getTrans',(req,res)=>{
+app.post('/api/getTrans',(req,res)=>{
     
     const get_trans = async () => {
         const data = await prisma.user.findUnique({

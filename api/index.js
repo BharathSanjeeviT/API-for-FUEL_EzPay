@@ -20,7 +20,7 @@ app.get('/api/redirect',(req,res)=>{
     res.redirect("http://"+"krunker"+".io")
 })
 
-app.post('/create_user',(req,res)=> {
+app.post('/api/create_user',(req,res)=> {
      
     const postData = async () => {
         const data = await prisma.User.create({

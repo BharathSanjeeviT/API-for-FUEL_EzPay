@@ -8,6 +8,8 @@ app.use(bodyparser.urlencoded({extended : false}))
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient()
 
+console.log("Hello World")
+
 app.get('/api',(req,res)=> {
     const dbFunc = async () => {
         const data = await prisma.User.findMany()
